@@ -1,6 +1,6 @@
 import sys
 from sys import stdin, stderr, stdout
-
+# define the trie which will be the pillar of this program
 class node:
     def __init__(self):
         self.words=0 # the number of words/expressions that matches this node completely
