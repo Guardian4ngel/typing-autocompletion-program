@@ -54,10 +54,10 @@ def clean(w):# clean a word from training data
         cleanword+=c
     return cleanword
 
-def train(train_amount,review):
+def train(train_amount):
     print('Training',file=stderr)
-    reviews=open('reviews_{}.txt'.format(review),'r',encoding="utf8")
-    print('Loading review_{}'.format(review),file=stderr)
+    reviews=open(training_file,'r',encoding="utf8")
+    print('Loading '+training_file,file=stderr)
     trie=node()
     linecount=0
     for rv in reviews:
@@ -80,7 +80,7 @@ def train(train_amount,review):
             print("{} reviews loaded".format(linecount),file=stderr)
         if linecount==train_amount:
             break
-    print('Training ended, {} reviews loaded in total'.format(linecount),file=stderr)
+    print('Training ended, {} lines loaded in total'.format(linecount),file=stderr)
     return trie
 
 def select(pred):# if the recommendation from trie is graater than 3, compute their percentage of appearance and pick the 3 most frequent entry as final recommendation
